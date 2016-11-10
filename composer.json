@@ -1,0 +1,22 @@
+{
+    "name": "lbreak/date-picker",
+    "description": "This is a daterangepicker package.",
+    "keywords": ["PHP","date-picker","daterangepicker","datepicker","yii","yii2.0"],
+    "license": "MIT",
+    "type": "yii2-extension",
+    "authors": [
+        {
+            "name": "Break",
+            "email": "lbreak@yeah.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "yiisoft/yii2": ">=2.0.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "lbreak\\datePicker\\": ""
+        }
+    }
+}
