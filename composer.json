@@ -3,6 +3,7 @@
     "description": "This is a daterangepicker package.",
     "keywords": ["PHP","date-picker","daterangepicker","datepicker","yii","yii2.0"],
     "license": "MIT",
+    "version": "1.0.0-dev",
     "minimum-stability": "dev",
     "type": "yii2-extension",
     "authors": [
