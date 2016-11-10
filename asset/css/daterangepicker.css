@@ -267,3 +267,6 @@
     float: right; }
   .daterangepicker .calendar.left {
     clear: none !important; } }
+  .origin-datepicker {
+    text-align: center;
+  }

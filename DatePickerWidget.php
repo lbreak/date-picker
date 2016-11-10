@@ -23,19 +23,82 @@ class DatePickerWidget extends Widget
         ],
     ];
 
+    /**
+     * input name
+     * @var string
+     */
     public $inputName = 'DatePicker';
+    /**
+     * element id
+     * @var string
+     */
     public $id = '';
+
+    /**
+     * element class
+     * @var string
+     */
     public $cssClass = 'date_picker';
+
+    /**
+     * prompt eg:2016-09-12
+     * @var string
+     */
     public $prompt = '';
-    public $style = 'text-align:center;min-width:100px;width:100px';
+
+    /**
+     * element style
+     * @var string
+     */
+    public $style = 'text-align:center;';
+
+    /**
+     * is auto update
+     * @var bool
+     */
     public $autoUpdateInput = false;
+
+    /**
+     * is single
+     * @var bool
+     */
     public $single = true;
+
+    /**
+     * time switch
+     * @var bool
+     */
     public $timePicker = false;
+
+    /**
+     * show direction
+     * @var bool
+     */
     public $showDropdowns = true;
+
+    /**
+     * is 24hours
+     * @var bool
+     */
     public $is24 = true;
+
+    /**
+     * btn label
+     * @var string
+     */
     public $applyLabel = '确认';
     public $cancelLabel = '取消';
+    public $second = false;
+    /**
+     * datetime format
+     * @var string
+     */
     public $format = "YYYY-MM-DD";
+
+    public $dateLimit = null;
+
+    public $timePickerIncrement = 1;
+
     public $daysOfWeek = ["日", "一", "二", "三", "四", "五", "六"];
     public $monthNames = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"];
 
@@ -47,12 +110,22 @@ class DatePickerWidget extends Widget
         $this->config['singleDatePicker'] = $this->single;
         $this->config['timePicker'] = $this->timePicker;
         $this->config['timePicker24Hour'] = $this->is24;
+        $this->config['timePickerSeconds'] = $this->second;
         $this->config['showDropdowns'] = $this->showDropdowns;
         $this->config['locale']['format'] = $this->format;
         $this->config['locale']['applyLabel'] = $this->applyLabel;
         $this->config['locale']['cancelLabel'] = $this->cancelLabel;
         $this->config['locale']['daysOfWeek'] = $this->daysOfWeek;
         $this->config['locale']['monthNames'] = $this->monthNames;
+        if($this->dateLimit){
+            $dateLimit = (float) $this->dateLimit;
+            $this->config['dateLimit'] = [
+                'days' => $dateLimit
+            ];
+        }
+        if($this->timePickerIncrement > 1){
+            $this->config['timePickerIncrement'] = $this->timePickerIncrement;
+        }
         if($this->prompt){
             $this->initPrompt();
         }
@@ -62,7 +135,7 @@ class DatePickerWidget extends Widget
     {
         $dateInput = "<input name='{$this->inputName}' value='{$this->prompt}'";
         $dateInput .= $this->id ? " id='{$this->id}'" : '';
-        $dateInput .= $this->cssClass ? " class='{$this->cssClass}'" : '';
+        $dateInput .= $this->cssClass ? " class='origin-datepicker {$this->cssClass}'" : "class='origin-datepicker'";
         $dateInput .= $this->style ? " style='{$this->style}'" : '';
         $dateInput .= '>';
         $view = $this->getView();
