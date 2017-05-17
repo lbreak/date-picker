@@ -1,5 +1,5 @@
 # daterangepicker yii widget
-This is a daterangepicker package.
+This is a daterangepicker package a.
 
 eg:
 <?=DatePickerWidget::widget()?>
